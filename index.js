@@ -38,8 +38,6 @@ async function getNoticie(name) {
       .find("div.image")
       .find("img")
       .attr("data-src-hq");
-    console.log("title: ", title);
-    console.log("----------");
 
     noticies.push({ title, content, url, imageUrl });
   });
