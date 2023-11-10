@@ -1,6 +1,6 @@
 import cheerio from "cheerio";
 
-async function getNoticie(name) {
+export async function getNoticie(name) {
   const newsName = name.split(" ").join("+");
   console.log("NewsName: ", newsName);
 
@@ -44,6 +44,3 @@ async function getNoticie(name) {
 
   return noticies;
 }
-
-const listNoticias = await getNoticie("persona 5");
-console.log(listNoticias);
