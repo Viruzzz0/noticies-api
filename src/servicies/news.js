@@ -2,8 +2,6 @@ import cheerio from "cheerio";
 
 export async function getNoticie(name) {
   const newsName = name.split(" ").join("+");
-  console.log("NewsName: ", newsName);
-
   const url = `https://www.bing.com/news/search?q=${newsName}&qs=n&form=QBNT&sp=-1&lq=0&pq=persona+5&sc=10-9&sk=&cvid=621A2A47EB7247F591B0AFEF91B3692E&ghsh=0&ghacc=0&ghpl=`;
 
   const customHeaders = {
@@ -39,7 +37,12 @@ export async function getNoticie(name) {
       .find("img")
       .attr("data-src-hq");
 
-    noticies.push({ title, content, url, imageUrl });
+    noticies.push({
+      title,
+      content,
+      url,
+      imageUrl: `https://th.bing.com${imageUrl}`,
+    });
   });
 
   return noticies;

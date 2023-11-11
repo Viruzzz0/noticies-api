@@ -1,15 +1,12 @@
-import { Router } from 'express'
-import { getNoticie } from '../servicies/news'
+import { Router } from "express";
+import { getNoticie } from "../servicies/news.js";
+const router = Router();
 
-const router = Router()
+router.get("/noticies/:name", async (req, res) => {
+  const { name } = req.params;
 
-router.get('/noticies', async () => {
-  console.log('get noticies')
+  const listNoticias = await getNoticie(name);
+  res.json(listNoticias);
+});
 
-  const listNoticias = await getNoticie("persona 5");
-  console.log(listNoticias);
-
-})
-
-
-export { router }
+export { router };
