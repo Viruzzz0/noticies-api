@@ -6,7 +6,7 @@ router.get("/noticies/:name", async (req, res) => {
   const { name } = req.params;
 
   const listNoticias = await getNoticie(name);
-  res.json(listNoticias);
+  res.status(200).json(listNoticias);
 });
 
 export { router };

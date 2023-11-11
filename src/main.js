@@ -7,6 +7,9 @@ const app = express();
 
 app.use("/api", router);
 
+
 const server = app.listen(PORT, () =>
   console.log(`Server is listening PORT: ${PORT}`),
 );
+
+export { app, server };
